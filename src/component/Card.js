@@ -11,7 +11,8 @@ const Card = ({ id, title, desc, price, current, color, height, bg }) => {
     setCard((cards) => ({ ...cards, currentCard: id }))
   }
 
-  const active = current === id ? 'border-4 border-dark border-opacity-70 ' : ''
+  const active =
+    current === id ? 'border-4 border-light-100 border-opacity-70 ' : ''
 
   return (
     <div
@@ -36,4 +37,31 @@ const Card = ({ id, title, desc, price, current, color, height, bg }) => {
   )
 }
 
-export default Card
+const CardWrapper = () => {
+  // TODO Select only first 2 item from cards.items
+
+  const [cards] = useContext(CardContext)
+  const items = cards.items.slice(0, 2)
+  const current = cards.currentCard
+
+  return (
+    <div className={'grid grid-cols-2 gap-9'}>
+      {items.map((item) => (
+        <Card
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          desc={item.desc}
+          price={item.price}
+          height={'21rem'}
+          color={'text-light-200'}
+          bg={'bg-red-100'}
+          click={true}
+          current={current}
+        />
+      ))}
+    </div>
+  )
+}
+
+export default CardWrapper

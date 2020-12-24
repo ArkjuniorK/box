@@ -6,7 +6,7 @@ const Text = () => {
     const span = document.querySelectorAll('#text')
     span.forEach((item) => {
       const strong = Object.values(item.children)
-      strong.forEach((tag) => (tag.className += 'text-dark font-black'))
+      strong.forEach((tag) => (tag.className += 'text-light-200 font-black'))
     })
   })
 
@@ -33,10 +33,10 @@ const Text = () => {
       </div>
       <div className='relative z-10 grid grid-cols-5 w-full h-36'>
         <span
-          className={'w-full col-span-2 trans bg-gradient-to-r from-light-200'}
+          className={'w-full col-span-2 trans bg-gradient-to-r from-dark'}
         />
         <span></span>
-        <span className={'w-full col-span-2 bg-gradient-to-l from-light-200'} />
+        <span className={'w-full col-span-2 bg-gradient-to-l from-dark'} />
       </div>
     </section>
   )

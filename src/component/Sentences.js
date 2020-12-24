@@ -9,7 +9,7 @@ const SentencesText = ({ text, right, left, position }) => {
   return (
     <div
       className={
-        'flex items-center space-x-7 min-w-max overflow-hidden relative'
+        'flex  text-light-200 items-center space-x-7 min-w-max overflow-hidden relative'
       }
       style={{ transform: `translateX(${position}rem)` }}
     >
@@ -25,7 +25,7 @@ const SentencesText = ({ text, right, left, position }) => {
           ))}
         </span>
       )}
-      <div className={'font-raleway font-bold text-dark text-5xl w-full '}>
+      <div className={'font-raleway font-bold  text-5xl w-full '}>
         {text.toUpperCase()}
       </div>
       {right && (

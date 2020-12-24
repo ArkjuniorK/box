@@ -10,7 +10,7 @@ import React, { useState } from 'react'
 let toUC = (v) => v.toUpperCase()
 
 // Logo Section
-const Logo = () => {
+export const LogoSmall = () => {
   const [hover, setHover] = useState(false)
   return (
     <a
@@ -40,7 +40,7 @@ const Item = ({ item }) => {
     <a
       href={item.url}
       className={`flex space-x-1 items-center transition-all duration-100 ease-in-out ${
-        hover ? 'text-red-100' : ''
+        hover ? 'text-red-100' : 'text-light-200'
       }`}
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => setHover(false)}
@@ -60,10 +60,10 @@ const Item = ({ item }) => {
 // Navbar
 const Navbar = () => {
   return (
-    <nav className='text-dark mx-auto relative grid grid-cols-4 gap-0 h-32'>
+    <nav className='text-light-200 mx-auto relative grid grid-cols-4 gap-0 h-32'>
       {/* USE GRID */}
       <section className='my-auto'>
-        <Logo />
+        <LogoSmall />
       </section>
 
       <section className='col-span-2 my-auto'>
