@@ -42,7 +42,7 @@ const cards = {
     },
     {
       id: 4,
-      title: 'Wow Friend',
+      title: 'Silver Mine',
       desc: 'for college and high scholl student',
       price: 100,
       feature: [

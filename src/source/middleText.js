@@ -6,7 +6,7 @@ const sentecesArray = [
     title: 'compatible with almost',
     right: true,
     left: false,
-    position: 14,
+    position: -4,
   },
   { id: 2, title: 'every provider', right: true, left: true, position: -32.5 },
   {
@@ -14,7 +14,7 @@ const sentecesArray = [
     title: 'on indonesia and 12 country',
     right: false,
     left: true,
-    position: -41,
+    position: -24,
   },
 ]
 

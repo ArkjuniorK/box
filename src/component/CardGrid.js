@@ -1,29 +1,43 @@
 import { useState, useContext } from 'react'
 import { CardContext } from '../source/card'
+import { AnimationContext } from '../source/animation'
 import Button from './Button'
 
 const CardGrid = ({ title, price, feature, left }) => {
-  const [hover, sethover] = useState(false)
+  const [hover, setHover] = useState(false)
+  const [animate, setAnimate] = useState(false)
 
-  const classname = hover ? 'border-red-100 border-4 ' : ''
-  const leftSide = left ? ' right-0' : ''
-  const hoverParent = hover ? 'absolute' : ''
-  const width = hover ? '36rem' : '100%'
+  // class and style for parent
+  const classname = animate ? 'border-red-100 border-4' : '' // border of the card when animate
+  const width = animate ? '210%' : '100%' // width of the card when animate
+  const leftSide = left ? ' right-0' : '' // for card that placed in left
 
-  function setHover() {
-    setTimeout(() => sethover(!hover), 200)
+  // class for child one
+  const flexState = hover ? 'flex-initial' : 'flex-1'
+
+  // first toggle the animate then hover
+  // do backward if both of state is false
+  function toggleHover() {
+    if (!animate && !hover) {
+      setAnimate(!animate)
+      setTimeout(() => setHover(!hover), 200)
+    } else {
+      setHover(!hover)
+      setTimeout(() => setAnimate(!animate), 200)
+    }
   }
 
   return (
-    <div className={'relative select-none cursor-pointer  h-64'}>
+    <div className={'relative select-none cursor-pointer h-64'}>
       <div
-        className={`flex ${leftSide} ${hoverParent} ${classname} bg-light-100 transform h-full rounded-3xl overflow-hidden ease-in-out duration-200 transition-all`}
+        id={'parent'}
+        onClick={toggleHover}
+        className={`flex ${leftSide} ${classname} absolute bg-light-100 transform h-full rounded-3xl overflow-hidden ease-in-out duration-200 transition-all`}
         style={{ width: width }}
-        onClick={setHover}
       >
-        {/* one */}
+        {/* child one */}
         <div
-          className={` text-dark pl-10 py-10 flex flex-col justify-between flex-1 `}
+          className={` text-dark pl-10 py-10 flex flex-col justify-between ${flexState} `}
         >
           <span className={'text-5xl font-bold'}>{title.toUpperCase()}</span>
           <span className={'font-quicksand text-3xl font-medium'}>
@@ -31,9 +45,11 @@ const CardGrid = ({ title, price, feature, left }) => {
           </span>
         </div>
 
-        {/* two */}
+        {/* child two */}
         {hover && (
-          <div className={`py-10 pr-10 flex flex-col justify-between`}>
+          <div
+            className={`py-10 pr-10 flex flex-initial flex-col justify-between`}
+          >
             <div className={'flex flex-col space-y-1'}>
               {feature.map((value) => (
                 <div className={'inline-flex font-medium '}>
@@ -58,22 +74,22 @@ const CardGrid = ({ title, price, feature, left }) => {
 
 const CardGridWrapper = () => {
   const [cards] = useContext(CardContext)
-  let left = []
-  let right = []
+  const left = cards.items.filter((card) => card.id % 2 === 1) // card with odd number
+  const right = cards.items.filter((card) => card.id % 2 === 0) // card with even number
 
-  // seperate cards.items into 2 array
-  cards.items.forEach((card) => {
-    // even number
-    if (card.id % 2 === 0) right.push(card)
-    else left.push(card) // odd number
-  })
+  // Animation
+  const [y] = useContext(AnimationContext)
+  const divide = 300
+  const tyLeft = 4 - y / divide // from down to up
+  const tyRight = -4 + y / divide // from up to down
 
   return (
     <div className={'grid grid-cols-4 gap-7 mt-20 mb-28'}>
       <div
         className={
-          'grid grid-rows-2 col-start-2 gap-7 relative transform translate-y-0'
+          'grid grid-rows-2 col-start-2 gap-7 relative transform transition-transform ease-out duration-700'
         }
+        style={{ transform: `translateY(${tyLeft}rem)` }}
       >
         {left.map((card) => (
           <CardGrid
@@ -88,8 +104,9 @@ const CardGridWrapper = () => {
 
       <div
         className={
-          ' grid grid-rows-2 col-start-3 gap-7 relative translate-y-10 transform-gpu'
+          ' grid grid-rows-2 col-start-3 gap-7 relative transform transition-transform ease-out duration-700'
         }
+        style={{ transform: `translateY(${tyRight}rem)` }}
       >
         {right.map((card) => (
           <CardGrid

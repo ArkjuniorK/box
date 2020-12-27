@@ -1,17 +1,23 @@
 import React, { useContext, useEffect } from 'react'
 import { SentencesContext } from '../source/middleText'
+import { AnimationContext } from '../source/animation'
 
 // TODO Change postion both top and bottom text when scrolling
 
 const SentencesText = ({ text, right, left, position }) => {
   const line = [0, 1, 2, 3]
+  const [y] = useContext(AnimationContext)
+  const divide = 100
+
+  // if left then start the transform from left to right
+  const x = left ? position - y / divide : position + y / divide
 
   return (
     <div
       className={
-        'flex  text-light-200 items-center space-x-7 min-w-max overflow-hidden relative'
+        'flex  text-light-200 items-center space-x-7 min-w-max overflow-hidden relative transition-transform duration-700 ease-out transform origin-left'
       }
-      style={{ transform: `translateX(${position}rem)` }}
+      style={{ transform: `translateX(${x}rem)` }}
     >
       {left && (
         <span className={'flex items-center space-x-6 left-0'}>
@@ -45,7 +51,7 @@ const SentencesText = ({ text, right, left, position }) => {
 }
 
 const Sentences = () => {
-  const [sentences, setsentences] = useContext(SentencesContext)
+  const [sentences] = useContext(SentencesContext)
 
   useEffect(() => {})
 

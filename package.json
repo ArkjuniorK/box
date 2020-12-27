@@ -19,8 +19,9 @@
   },
   "scripts": {
     "dev": "run-p watch:css start",
+    "prod": "run-p build:css build",
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run build:css",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",

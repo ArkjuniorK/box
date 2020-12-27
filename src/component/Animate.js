@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const Animate = ({ id, children, animateClass }) => {
-  const [animation, setanimation] = useState(animateClass)
+  const [animation] = useState(animateClass)
 
   useEffect(
     () => {
@@ -11,6 +11,8 @@ const Animate = ({ id, children, animateClass }) => {
       setTimeout(() => {
         animate.classList.remove(animation)
       }, 300)
+
+      return () => {}
     },
     [children] /* react when children props is change */
   )

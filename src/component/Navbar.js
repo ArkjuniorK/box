@@ -23,7 +23,7 @@ export const LogoSmall = () => {
         src={imglogo}
         alt='Logo'
         className={`
-          transform transition-transform duration-700 ease-in-out
+          transform transition-transform duration-700 ease-in-out origin-center
           ${hover ? 'rotate-180' : ''}
         `}
       />

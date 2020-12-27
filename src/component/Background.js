@@ -1,6 +1,31 @@
-const Background = ({ position }) => {
+import { useContext, useState } from 'react'
+import { AnimationContext } from '../source/animation'
+const Background = ({
+  position,
+  translateX,
+  translateY,
+  typeX,
+  typeY,
+  divideY,
+  divideX,
+}) => {
+  const [y] = useContext(AnimationContext)
+  const [type] = useState({ x: typeX, y: typeY })
+  const [translate] = useState({ x: translateX, y: translateY })
+
+  // identifier
+  const tx = translate.x + y / divideX
+  const ty = translate.y + y / divideY
+
+  // unit
+  const tyx = type.x ? type.x : 'rem'
+  const tyy = type.y ? type.y : 'rem'
+
   return (
-    <section className={`absolute transform ${position}`}>
+    <section
+      className={`absolute transform ${position} transition-transform duration-500 ease-in-out`}
+      style={{ transform: `translate(${tx + tyx}, ${ty + tyy})` }}
+    >
       <svg
         width='278'
         height='278'
