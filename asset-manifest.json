@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/box/static/css/main.d3d19220.chunk.css",
+    "main.js": "/box/static/js/main.ff8474f8.chunk.js",
+    "main.js.map": "/box/static/js/main.ff8474f8.chunk.js.map",
+    "runtime-main.js": "/box/static/js/runtime-main.4f03c6ab.js",
+    "runtime-main.js.map": "/box/static/js/runtime-main.4f03c6ab.js.map",
+    "static/css/2.bf7f999b.chunk.css": "/box/static/css/2.bf7f999b.chunk.css",
+    "static/js/2.20fdb308.chunk.js": "/box/static/js/2.20fdb308.chunk.js",
+    "static/js/2.20fdb308.chunk.js.map": "/box/static/js/2.20fdb308.chunk.js.map",
+    "static/js/3.701f5d6e.chunk.js": "/box/static/js/3.701f5d6e.chunk.js",
+    "static/js/3.701f5d6e.chunk.js.map": "/box/static/js/3.701f5d6e.chunk.js.map",
+    "index.html": "/box/index.html",
+    "static/css/2.bf7f999b.chunk.css.map": "/box/static/css/2.bf7f999b.chunk.css.map",
+    "static/css/main.d3d19220.chunk.css.map": "/box/static/css/main.d3d19220.chunk.css.map",
+    "static/js/2.20fdb308.chunk.js.LICENSE.txt": "/box/static/js/2.20fdb308.chunk.js.LICENSE.txt",
+    "static/media/logo.df5d3dac.svg": "/box/static/media/logo.df5d3dac.svg",
+    "static/media/index.css": "/box/static/media/raleway-latin-900italic.ee04d481.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f03c6ab.js",
+    "static/css/2.bf7f999b.chunk.css",
+    "static/js/2.20fdb308.chunk.js",
+    "static/css/main.d3d19220.chunk.css",
+    "static/js/main.ff8474f8.chunk.js"
+  ]
+}
