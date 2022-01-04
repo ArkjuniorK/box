@@ -13,7 +13,7 @@ import "typeface-raleway";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/box">
       <App />
     </BrowserRouter>
   </React.StrictMode>,

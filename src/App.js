@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Router } from "react-router-dom";
 import { AnimationProvider } from "./source/animation";
 import Fb from "./firebase";
 import Navbar from "./component/Navbar";
@@ -451,13 +451,11 @@ const App = () => {
           />
 
           {/* routes */}
-          <BrowserRouter basename="/box">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-            </Routes>
-          </BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
 
           {/* footer */}
           <Footer />
