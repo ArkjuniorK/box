@@ -1,24 +1,21 @@
 const navbar = {
-  logo: 'Box',
+  logo: "Box",
   nav: [
     {
-      name: 'Home',
-      url: '#',
+      name: "Home",
+      url: "/",
+    },
+
+    {
+      name: "Services",
+      url: "/services",
     },
     {
-      name: 'About',
-      url: '#',
-    },
-    {
-      name: 'Service',
-      url: '#',
-    },
-    {
-      name: 'Contact',
-      url: '#',
+      name: "About",
+      url: "/about",
     },
   ],
-  button: { name: 'Sign Up', icon: 'account_circle' },
-}
+  button: { name: "Sign In", icon: "account_circle" },
+};
 
-export default navbar
+export default navbar;
